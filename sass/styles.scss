@@ -1,0 +1,341 @@
+@use 'colors';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+@mixin center-container{
+    width: 90%;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    position: relative;
+
+    &.menu-active{
+        &::after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, .6);
+        }
+    }
+}
+
+
+.header{
+    @include center-container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.75em 0 2.5em;
+
+    &__menu{
+        cursor: pointer;
+        display: none;
+    }
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    
+    &__link{
+        text-decoration: none;
+        color: colors.$dark-grayish-blue;
+        padding: 0 1.25em;
+
+        &:hover{
+            color: colors.$soft-red;
+        }
+    }
+
+    &__menu{
+        margin-left: auto;
+        margin-bottom: 2.5em;
+        display: none;
+        cursor: pointer;
+    }
+}
+
+.main{
+    @include center-container;
+
+    &__container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__left{
+        width: 65%;
+    }
+
+    &__picture{
+        width: 100%;
+    }
+
+    &__img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2em;
+    }
+
+    &__title{
+        width: 45%;
+    }
+
+    &__heading{
+        font-size: 3.75rem;
+        font-weight: 800;
+        color: colors.$very-dark-blue;
+        line-height: 1.1;
+    }
+
+    &__text{
+        width: 50%;
+    }
+
+    &__paragraph{
+        color: colors.$dark-grayish-blue;
+        line-height: 1.5;
+    }
+
+    &__btn{
+        margin-top: 2.5em;
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        padding: 0.9375em 0;
+        background-color: colors.$soft-red;
+        text-decoration: none;
+        color: colors.$off-white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 0.875rem;
+        transition: background-color .4s;
+
+        &:hover{
+            background-color: colors.$very-dark-blue;
+        }
+    }
+
+    &__right{
+        width: 32%;
+        background-color: colors.$very-dark-blue;
+        padding: 2.5em 1.25em;
+    }
+
+    &__news{
+        color: colors.$soft-orange;
+        font-size: 2.5rem;
+    }
+
+    &__new{
+        margin-top: 1.875em;
+        border-bottom: 2px solid colors.$dark-grayish-blue;
+        padding-bottom: 1.875em;
+    }
+
+    &__newtitle{
+        text-decoration: none;
+        color: colors.$off-white;
+        font-weight: 700;
+        font-size: 1.25rem;
+        transition: color .4s;
+
+        &:hover{
+            color: colors.$soft-orange;
+        }
+    }
+
+    &__newtext{
+        margin-top: 1em;
+        color: colors.$grayish-blue;
+        letter-spacing: 1px;
+        font-size: 0.9375rem;
+    }
+
+    &__bottom{
+        margin-top: 3.75em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-bottom: 1.875em;
+    }
+
+    &__cases{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 31%;
+    }
+
+    &__casepicture{
+        width: 30%;
+    }
+
+    &__caseimg{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__casetexts{
+        width: 65%;
+    }
+
+    &__number{
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: colors.$grayish-blue;
+    }
+
+    &__caseheading{
+        color: colors.$very-dark-blue;
+        font-weight: 800;
+        font-size: 1.125rem;
+        margin: 1em 0;
+        display: inline-block;
+        text-decoration: none;
+        transition: color .4s;
+
+        &:hover{
+            color: colors.$soft-red;
+        }
+    }
+
+    &__casetext{
+        font-size: 0.9375rem;
+        line-height: 1.5;
+        color: colors.$dark-grayish-blue;
+    }
+}
+
+@media (max-width: 1200px){
+
+    .main{
+        &__left{
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__info{
+            flex: 1;
+        }
+
+        &__heading{
+            font-size: 3rem;
+        }
+
+        &__cases{
+            align-items: stretch;
+        }
+
+        &__caseheading{
+            margin: 0.5em 0;
+        }
+    }
+}
+
+@media (max-width: 1000px){
+
+    .main{
+        &__cases{
+            width: 45%;
+            margin-top: 1.25em;
+        }
+
+        &__info{
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1.25em;
+        }
+
+        &__title,
+        &__text{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .main{
+        &__container{
+            flex-direction: column;
+        gap: 2.5em;
+        }
+
+        &__left,
+        &__right{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 650px){
+
+    .header{
+        &__menu{
+            display: block;
+        }
+    }
+
+    .navbar{
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 18.75rem;
+        background-color: colors.$off-white;
+        flex-direction: column;
+        align-items: initial;
+        gap: 1.25em;
+        padding: 1.875em;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
+        transform: translateX(100%);
+        transition: transform .4s;
+
+        &.active{
+            transform: translateX(0);
+        }
+
+        &__link{
+            color: colors.$very-dark-blue;
+        }
+
+        &__menu{
+            display: block;
+        }
+    }
+
+    .main{
+        &__cases{
+            width: 100%;
+            align-items: center;
+        }
+
+        &__casepicture{
+            max-width: 9.375rem;
+            max-height: 12.5rem;
+        }
+    }
+
+}
